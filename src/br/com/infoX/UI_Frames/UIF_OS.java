@@ -251,7 +251,7 @@ public class UIF_OS extends javax.swing.JInternalFrame {
             try {
                 HashMap filtro = new HashMap();
                 filtro.put("os", Integer.valueOf(txtOs.getText()));
-                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("E:/PROJETOS DEV-GIOVANI/PROJETOS NETBEANS/P-2023/GvC-InfoX/src/reports/os.jasper"), filtro, conexao);
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/os.jasper"), filtro, conexao);
                 JasperViewer.viewReport(print, false);
                 conexao.close();
             } catch (NumberFormatException | SQLException | JRException e) {

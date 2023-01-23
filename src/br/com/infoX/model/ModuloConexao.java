@@ -2,8 +2,19 @@ package br.com.infoX.model;
 
 import java.sql.*;
 
+/**
+ * Conexão com SGBD
+ *
+ * @author Giovani V. Chaves
+ * @version 1.1
+ */
 public class ModuloConexao {
 
+    /**
+     * Método responsável pela conexão com o SGBD
+     *
+     * @return conexao
+     */
     public static Connection conectar() {
         Connection conexao;
         String driver = "com.mysql.cj.jdbc.Driver";

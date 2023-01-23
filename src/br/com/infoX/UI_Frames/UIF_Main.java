@@ -48,7 +48,7 @@ public class UIF_Main extends javax.swing.JFrame {
         if (confirma == JOptionPane.YES_OPTION) {
             try {
                 conexao = ModuloConexao.conectar();
-                JasperPrint print = JasperFillManager.fillReport("E:/PROJETOS DEV-GIOVANI/PROJETOS NETBEANS/P-2023/GvC-InfoX/src/reports/clientes.jasper", null, conexao);
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/clientes.jasper"), null, conexao);
                 JasperViewer.viewReport(print, false);
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -67,7 +67,7 @@ public class UIF_Main extends javax.swing.JFrame {
         if (confirma == JOptionPane.YES_OPTION) {
             try {
                 conexao = ModuloConexao.conectar();
-                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("E:/PROJETOS DEV-GIOVANI/PROJETOS NETBEANS/P-2023/GvC-InfoX/src/reports/servicos.jasper"), null, conexao);
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/servicos.jasper"), null, conexao);
                 JasperViewer.viewReport(print, false);
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(null, e);
