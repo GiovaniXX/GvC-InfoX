@@ -26,6 +26,7 @@ package br.com.infoX.UI_Frames;
 import Atxy2k.CustomTextField.RestrictedTextField;
 import java.sql.*;
 import br.com.infoX.model.ModuloConexao;
+import java.awt.Color;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -42,6 +43,8 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
      */
     public UIF_Customer() {
         initComponents();
+        getContentPane().setBackground(new Color(8, 13, 32));
+        
         RestrictedTextField validarCliente;
         validarCliente = new RestrictedTextField(txtCliNome);
         validarCliente.setLimit(50);
@@ -261,14 +264,19 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Clientes");
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("* Campos obrigatórios");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("* Nome");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Endereço");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("* Telefone");
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("E-mail");
 
         btnRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/delete.png"))); // NOI18N
@@ -281,6 +289,14 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
                 btnRemoverActionPerformed(evt);
             }
         });
+
+        txtCliNome.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtCliFone.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtCliEndereco.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtCliEmail.setBackground(new java.awt.Color(80, 87, 122));
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/update.png"))); // NOI18N
         btnAlterar.setToolTipText("Editar cliente");
@@ -303,6 +319,7 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
             }
         });
 
+        txtCliPesquisar.setBackground(new java.awt.Color(80, 87, 122));
         txtCliPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCliPesquisarKeyReleased(evt);
@@ -317,6 +334,7 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
                 return false;
             }
         };
+        tblClientes.setBackground(new java.awt.Color(80, 87, 122));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -336,9 +354,16 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(tblClientes);
+        if (tblClientes.getColumnModel().getColumnCount() > 0) {
+            tblClientes.getColumnModel().getColumn(0).setMinWidth(35);
+            tblClientes.getColumnModel().getColumn(0).setPreferredWidth(35);
+            tblClientes.getColumnModel().getColumn(0).setMaxWidth(35);
+        }
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Id Cliente");
 
+        txtCliId.setBackground(new java.awt.Color(80, 87, 122));
         txtCliId.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -369,7 +394,7 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
                         .addComponent(txtCliEndereco, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtCliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtCliId, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(165, 165, 165)
                 .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,7 +403,8 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
         );
@@ -392,7 +418,7 @@ public class UIF_Customer extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtCliId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

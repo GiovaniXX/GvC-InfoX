@@ -25,6 +25,7 @@ package br.com.infoX.UI_Frames;
 
 import java.sql.*;
 import br.com.infoX.model.ModuloConexao;
+import java.awt.Color;
 import java.awt.HeadlessException;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
@@ -48,6 +49,7 @@ public class UIF_OS extends javax.swing.JInternalFrame {
      */
     public UIF_OS() {
         initComponents();
+        getContentPane().setBackground(new Color(8, 13, 32));
     }
 
     /**
@@ -248,8 +250,8 @@ public class UIF_OS extends javax.swing.JInternalFrame {
         if (confirma == JOptionPane.YES_OPTION) {
             try {
                 HashMap filtro = new HashMap();
-                filtro.put("os", Integer.parseInt(txtOs.getText()));
-                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/os.jasper"), filtro, conexao);
+                filtro.put("os", Integer.valueOf(txtOs.getText()));
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("E:/PROJETOS DEV-GIOVANI/PROJETOS NETBEANS/P-2023/GvC-InfoX/src/reports/os.jasper"), filtro, conexao);
                 JasperViewer.viewReport(print, false);
                 conexao.close();
             } catch (NumberFormatException | SQLException | JRException e) {
@@ -370,17 +372,24 @@ public class UIF_OS extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(80, 87, 122));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nº OS");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Data");
 
         txtOs.setEditable(false);
+        txtOs.setBackground(new java.awt.Color(80, 87, 122));
 
         txtData.setEditable(false);
+        txtData.setBackground(new java.awt.Color(80, 87, 122));
 
+        rbtOrc.setBackground(new java.awt.Color(80, 87, 122));
         buttonGroup1.add(rbtOrc);
+        rbtOrc.setForeground(new java.awt.Color(255, 255, 255));
         rbtOrc.setText("Orçamento");
         rbtOrc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,7 +397,9 @@ public class UIF_OS extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtOs.setBackground(new java.awt.Color(80, 87, 122));
         buttonGroup1.add(rbtOs);
+        rbtOs.setForeground(new java.awt.Color(255, 255, 255));
         rbtOs.setText("Ordem de serviço");
         rbtOs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -435,12 +446,17 @@ public class UIF_OS extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22))
         );
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("* Status");
 
+        cboOsSit.setBackground(new java.awt.Color(8, 13, 32));
         cboOsSit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Aguardando aprovação", "Aguardando peças", "Aguardando retirada", "Na bancada", "Retirado", " " }));
 
+        jPanel2.setBackground(new java.awt.Color(80, 87, 122));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
+        txtCliPesquisar.setBackground(new java.awt.Color(80, 87, 122));
         txtCliPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCliPesquisarActionPerformed(evt);
@@ -454,10 +470,13 @@ public class UIF_OS extends javax.swing.JInternalFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/pesquisar.png"))); // NOI18N
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("* Id");
 
         txtCliId.setEditable(false);
+        txtCliId.setBackground(new java.awt.Color(80, 87, 122));
 
+        tblClientes.setBackground(new java.awt.Color(80, 87, 122));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -512,12 +531,18 @@ public class UIF_OS extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("* Equipamento");
 
+        txtOsEquip.setBackground(new java.awt.Color(80, 87, 122));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("* Defeito");
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Serviço");
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Técnico");
 
         btnOsAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/create.png"))); // NOI18N
@@ -530,8 +555,16 @@ public class UIF_OS extends javax.swing.JInternalFrame {
             }
         });
 
+        txtOsTec.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtOsDef.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtOsServ.setBackground(new java.awt.Color(80, 87, 122));
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Valor Total");
 
+        txtOsValor.setBackground(new java.awt.Color(80, 87, 122));
         txtOsValor.setText("0");
 
         btnOsPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/read.png"))); // NOI18N

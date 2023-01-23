@@ -10,6 +10,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -42,15 +45,15 @@
                       <Component id="JLk" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLinfo" min="-2" pref="362" max="-2" attributes="0"/>
-                                  <Component id="JLstatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLinfo" min="-2" pref="362" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="JLstatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="BTloginIn" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BTloginIn" min="-2" max="-2" attributes="0"/>
+                              <Component id="PFkey" min="-2" pref="412" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="PFkey" min="-2" pref="412" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -160,10 +163,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="BTloginIn">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/infoX/icones/login_In.png"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="Enter"/>
+        <Property name="horizontalTextPosition" type="int" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BTloginInMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="JLinfo">
       <Properties>

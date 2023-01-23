@@ -3,6 +3,7 @@ package br.com.infoX.UI_Frames;
 import java.awt.Color;
 import java.sql.*;
 import br.com.infoX.model.ModuloConexao;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 public class UIF_Login extends javax.swing.JFrame {
@@ -11,33 +12,70 @@ public class UIF_Login extends javax.swing.JFrame {
     PreparedStatement pst;
     ResultSet rs;
 
-    public void logar() {
-        String sql = "select * from tbusuario where login=? and senha=?";
+    public UIF_Login() {
+        initComponents();
+        getContentPane().setBackground(new Color(8, 13, 32));
+    }
+
+    private void status() {
         try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, TFuser.getText());
-            pst.setString(2, PFpassword.getText());
-            rs = pst.executeQuery();
-
-            if (rs.next()) {
-
+            conexao = ModuloConexao.conectar();
+            if (conexao != null) {
+                JLstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/dbok.png")));
             } else {
-                JOptionPane.showMessageDialog(null, "Incorrect username or password!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JLstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/dberror.png")));
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
         }
     }
 
-    public UIF_Login() {
-        initComponents();
-        conexao = ModuloConexao.conectar();
-        //System.out.println(conexao); //--> Linha para verificação do status da conexao
-        if (conexao != null) {
-            JLstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/dbok.png")));
-        } else {
-            JLstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/dberror.png")));
+    public void logar() {
+        String sql = "select * from tbusuarios where login=? and senha=?";
+        try {
+            conexao = ModuloConexao.conectar();
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, TFuser.getText());
+            String captura = new String(PFpassword.getPassword());
+            pst.setString(2, captura);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String perfil = rs.getString(7);
+                //System.out.println(perfil);
+                if (perfil.equals("admin")) {
+                    UIF_Main main = new UIF_Main();
+                    main.setVisible(true);
+                    UIF_Main.menRel.setEnabled(true);
+                    UIF_Main.menCadUsu.setEnabled(true);
+                    UIF_Main.LBLusuario.setText(rs.getString(2));
+                    UIF_Main.LBLusuario.setForeground(Color.green);
+                    this.dispose();
+                } else {
+                    UIF_Main main = new UIF_Main();
+                    main.setVisible(true);
+                    UIF_Main.LBLusuario.setText(rs.getString(2));
+                    UIF_Main.LBLusuario.setForeground(Color.orange);
+                    this.dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect username or password!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
         }
-        getContentPane().setBackground(new Color(8, 13, 32));
     }
 
     @SuppressWarnings("unchecked")
@@ -57,6 +95,11 @@ public class UIF_Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UIF Custom Login");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         JLu.setBackground(new java.awt.Color(204, 204, 204));
         JLu.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,7 +123,15 @@ public class UIF_Login extends javax.swing.JFrame {
         PFkey.setForeground(new java.awt.Color(3, 155, 216));
         PFkey.setLabelText("Enter your key");
 
+        BTloginIn.setForeground(new java.awt.Color(255, 255, 255));
         BTloginIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/login_In.png"))); // NOI18N
+        BTloginIn.setText("Enter");
+        BTloginIn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        BTloginIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BTloginInMouseClicked(evt);
+            }
+        });
 
         JLinfo.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         JLinfo.setForeground(new java.awt.Color(204, 204, 204));
@@ -110,13 +161,13 @@ public class UIF_Login extends javax.swing.JFrame {
                         .addComponent(JLk)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLstatus))
-                                .addGap(18, 18, 18)
-                                .addComponent(BTloginIn))
-                            .addComponent(PFkey, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JLinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(JLstatus)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BTloginIn))
+                                .addComponent(PFkey, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,6 +203,14 @@ public class UIF_Login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BTloginInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTloginInMouseClicked
+        logar();
+    }//GEN-LAST:event_BTloginInMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        status();
+    }//GEN-LAST:event_formWindowActivated
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

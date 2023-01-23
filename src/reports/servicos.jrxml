@@ -171,8 +171,13 @@ order by situacao;]]>
 	<pageFooter>
 		<band height="53" splitType="Stretch">
 			<textField>
-				<reportElement x="503" y="0" width="32" height="20" uuid="f7dbcbee-209f-4e3b-a9f4-79a4134dbd69"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<reportElement x="433" y="0" width="80" height="20" uuid="29d57ff9-6b22-4dba-ae27-94b0ee1b3718"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="8f339c62-ec6e-426e-b7f6-4740ba2df5d3"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

@@ -40,6 +40,8 @@ public class UIF_User extends javax.swing.JInternalFrame {
      * Creates new form TelaUsuario
      */
     public UIF_User() {
+        getContentPane().setBackground(new Color(8, 13, 32));
+
         initComponents();
         RestrictedTextField validarId;
         validarId = new RestrictedTextField(txtUsuId);
@@ -310,18 +312,33 @@ public class UIF_User extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("* Id");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("* Nome");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fone");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("* Login");
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("* Senha");
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("* Perfil");
 
+        txtUsuId.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtUsuNome.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtUsuFone.setBackground(new java.awt.Color(80, 87, 122));
+
+        txtUsuLogin.setBackground(new java.awt.Color(80, 87, 122));
+
+        cboUsuPerfil.setBackground(new java.awt.Color(8, 13, 32));
         cboUsuPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "admin", "user" }));
 
         btnUsuUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/update.png"))); // NOI18N
@@ -357,8 +374,17 @@ public class UIF_User extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("* Campos obrigatórios");
 
+        txtUsuSenha.setBackground(new java.awt.Color(80, 87, 122));
+        txtUsuSenha.setCaretColor(new java.awt.Color(8, 13, 32));
+        txtUsuSenha.setDisabledTextColor(new java.awt.Color(8, 13, 32));
+        txtUsuSenha.setSelectedTextColor(new java.awt.Color(8, 13, 32));
+        txtUsuSenha.setSelectionColor(new java.awt.Color(8, 13, 32));
+
+        btnUsuRead.setBackground(new java.awt.Color(80, 87, 122));
+        btnUsuRead.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuRead.setText("Pesquisar");
         btnUsuRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,6 +392,7 @@ public class UIF_User extends javax.swing.JInternalFrame {
             }
         });
 
+        chkSenha.setForeground(new java.awt.Color(255, 255, 255));
         chkSenha.setText("Alterar a senha");
         chkSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

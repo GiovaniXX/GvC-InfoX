@@ -48,7 +48,7 @@ public class UIF_Main extends javax.swing.JFrame {
         if (confirma == JOptionPane.YES_OPTION) {
             try {
                 conexao = ModuloConexao.conectar();
-                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/clientes.jasper"), null, conexao);
+                JasperPrint print = JasperFillManager.fillReport("E:/PROJETOS DEV-GIOVANI/PROJETOS NETBEANS/P-2023/GvC-InfoX/src/reports/clientes.jasper", null, conexao);
                 JasperViewer.viewReport(print, false);
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -67,7 +67,7 @@ public class UIF_Main extends javax.swing.JFrame {
         if (confirma == JOptionPane.YES_OPTION) {
             try {
                 conexao = ModuloConexao.conectar();
-                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/servicos.jasper"), null, conexao);
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("E:/PROJETOS DEV-GIOVANI/PROJETOS NETBEANS/P-2023/GvC-InfoX/src/reports/servicos.jasper"), null, conexao);
                 JasperViewer.viewReport(print, false);
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -128,18 +128,23 @@ public class UIF_Main extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/pc.png"))); // NOI18N
 
+        jPanel1.setBackground(new java.awt.Color(8, 13, 32));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuário:");
 
         LBLusuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LBLusuario.setForeground(new java.awt.Color(255, 255, 255));
         LBLusuario.setText("Usuário");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Data:");
 
         LBLdata.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LBLdata.setForeground(new java.awt.Color(255, 255, 255));
         LBLdata.setText("Data");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -346,16 +351,24 @@ public class UIF_Main extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UIF_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIF_Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UIF_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIF_Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UIF_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIF_Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UIF_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIF_Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

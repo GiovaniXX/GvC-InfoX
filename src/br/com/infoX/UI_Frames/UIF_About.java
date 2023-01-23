@@ -23,6 +23,7 @@
  */
 package br.com.infoX.UI_Frames;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
@@ -35,6 +36,7 @@ public class UIF_About extends javax.swing.JFrame {
      */
     public UIF_About() {
         initComponents();
+        getContentPane().setBackground(new Color(8, 13, 32));
     }
 
     /**
@@ -66,16 +68,20 @@ public class UIF_About extends javax.swing.JFrame {
         setTitle("Sobre");
         setResizable(false);
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("X - Sistema para gestão de serviços - Ver 1.1");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Autor:  Giovani V. Chaves");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sob a licença MIT");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/mit.png"))); // NOI18N
 
+        lblLink.setForeground(new java.awt.Color(255, 255, 255));
         lblLink.setText("https://github.com/GiovaniXX");
-        lblLink.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblLink.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblLinkMouseClicked(evt);

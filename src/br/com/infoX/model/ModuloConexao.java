@@ -7,9 +7,9 @@ public class ModuloConexao {
     public static Connection conectar() {
         Connection conexao;
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/dbinfox";
-        String user = "root";
-        String password = "PerfectWorld2023@$";
+        String url = "jdbc:mysql://localhost:3306/dbinfox?characterEncoding=utf-8";
+        String user = "dba";
+        String password = "Infox387@$";
 
         try {
             Class.forName(driver);
