@@ -751,7 +751,7 @@ public class UIF_OS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rbtOsActionPerformed
 
     private void txtCliPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCliPesquisarActionPerformed
-
+        pesquisarCliente();
     }//GEN-LAST:event_txtCliPesquisarActionPerformed
 
     private void btnOsImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOsImprimirActionPerformed
