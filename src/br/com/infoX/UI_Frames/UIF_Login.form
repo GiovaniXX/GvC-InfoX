@@ -49,6 +49,8 @@
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="JLstatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="BTloginIn" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -90,10 +92,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="BTloginIn" min="-2" max="-2" attributes="0"/>
                   <Component id="JLstatus" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabel1" alignment="1" pref="0" max="32767" attributes="0"/>
+                      <Component id="BTloginIn" alignment="1" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="JLinfo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -169,7 +174,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/infoX/icones/login_In.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Enter"/>
         <Property name="horizontalTextPosition" type="int" value="2"/>
       </Properties>
       <Events>
@@ -199,6 +203,13 @@
           <Image iconType="3" name="/br/com/infoX/icones/dberror.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SGBD"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/br/com/infoX/icones/mysql.jpg"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

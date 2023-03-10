@@ -91,6 +91,7 @@ public class UIF_Login extends javax.swing.JFrame {
         BTloginIn = new javax.swing.JLabel();
         JLinfo = new javax.swing.JLabel();
         JLstatus = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UIF Custom Login");
@@ -125,7 +126,6 @@ public class UIF_Login extends javax.swing.JFrame {
 
         BTloginIn.setForeground(new java.awt.Color(255, 255, 255));
         BTloginIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/login_In.png"))); // NOI18N
-        BTloginIn.setText("Enter");
         BTloginIn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         BTloginIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -141,6 +141,8 @@ public class UIF_Login extends javax.swing.JFrame {
         JLstatus.setForeground(new java.awt.Color(255, 255, 255));
         JLstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/dberror.png"))); // NOI18N
         JLstatus.setText("SGBD");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infoX/icones/mysql.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,6 +167,8 @@ public class UIF_Login extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(JLstatus)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(BTloginIn))
                                 .addComponent(PFkey, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -193,9 +197,11 @@ public class UIF_Login extends javax.swing.JFrame {
                     .addComponent(PFkey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BTloginIn)
-                    .addComponent(JLstatus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addComponent(JLstatus)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(BTloginIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JLinfo)
                 .addContainerGap())
         );
@@ -254,5 +260,6 @@ public class UIF_Login extends javax.swing.JFrame {
     private br.com.infoX.Classes_Custom.PasswordField PFkey;
     private br.com.infoX.Classes_Custom.PasswordField PFpassword;
     private br.com.infoX.Classes_Custom.TextField TFuser;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
